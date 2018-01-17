@@ -141,3 +141,11 @@ Change your IP address as needed. The default IP address is now `192.168.22.10`
 ## Contribute!
 
 Do it! Any new install or improvement on existing ones are welcome! Please see the [contributing doc](/contributing.md).
+
+
+
+## Keys
+
+```bash
+wget --no-check-certificate https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub -O /home/vagrant/.ssh/authorized_keys
+```
