@@ -149,3 +149,16 @@ Do it! Any new install or improvement on existing ones are welcome! Please see t
 ```bash
 wget --no-check-certificate https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub -O /home/vagrant/.ssh/authorized_keys
 ```
+
+
+
+## Other Issue
+
+
+`Vagrant was unable to mount VirtualBox shared folders`
+
+```
+vagrant plugin install vagrant-winnfsd
+vagrant plugin install vagrant-vbguest
+Vagrant up
+```
