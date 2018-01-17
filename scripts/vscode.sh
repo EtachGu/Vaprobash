@@ -13,4 +13,4 @@ echo ">>> Installing  VSCode";
 
 # Install VSCode
 sudo apt-get update
-sudo apt-get -y vscode
+sudo apt-get -y code
