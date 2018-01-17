@@ -25,6 +25,8 @@ Some further assumptions and self-imposed restrictions. If you find yourself nee
     * Use `vagrant -v` to check your version
 * Vitualbox or VMWare Fusion
 
+* (option) Ubuntu16.04Desktop https://app.vagrantup.com/EvanGu/boxes/Ubuntu16.04Desktop 
+
 ## Instructions
 
 **First**, Copy the Vagrantfile from this repo. You may wish to use curl or wget to do this instead of cloning the repository.
