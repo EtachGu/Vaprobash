@@ -4,11 +4,11 @@
 code --version > /dev/null 2>&1
 VSCODE_IS_INSTALLED=$?
 
-if [ $VSCODE_IS_INSTALLED -eq 0 ]; then
+if [[ $VSCODE_IS_INSTALLED -eq 0 ]]; then
     echo ">>> info : vscode is installed"
     exit 1
 fi
-
+echo ">>> code  $VSCODE_IS_INSTALLED "
 echo ">>> Installing  VSCode";
 
 # Install VSCode
