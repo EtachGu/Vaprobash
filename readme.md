@@ -100,6 +100,8 @@ Here's a quickstart screencast!
 	* Beanstalkd
 	* Supervisord
     * Kibana
+	* Postman
+	* Visual Studio Code
 * Additional Languages
 	* NodeJS via NVM
 	* Ruby via RVM
