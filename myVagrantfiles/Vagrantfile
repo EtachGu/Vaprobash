@@ -47,6 +47,7 @@ server_timezone  = "UTC"
 ruby_version          = "latest" # Choose what ruby version should be installed (will also be the default version)
 ruby_gems             = [        # List any Ruby Gems that you want to install
   "jekyll",
+  "bundler",
   #"sass",
   #"compass",
 ]
