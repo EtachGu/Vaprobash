@@ -92,7 +92,7 @@ nodejs_packages       = [          # List any global NodeJS packages that you wa
 Vagrant.configure("2") do |config|
 
   # Set server to Ubuntu 14.04
-  config.vm.box = "ubuntu1604Desktop"
+  config.vm.box = "ubuntu/trusty64"
 
   config.vm.define "Vaprobash" do |vapro|
   end
