@@ -94,7 +94,7 @@ Vagrant.configure("2") do |config|
   # Set server to Ubuntu 14.04
   config.vm.box = "ubuntu/trusty64"
 
-  config.vm.define "Vaprobash" do |vapro|
+  config.vm.define "pythonBox" do |vapro|
   end
 
   if Vagrant.has_plugin?("vagrant-hostmanager")
@@ -110,21 +110,30 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = hostname
 
   # Create a static IP
-  if Vagrant.has_plugin?("vagrant-auto_network")
-    config.vm.network :private_network, :ip => "0.0.0.0", :auto_network => true
-  else
-    config.vm.network :private_network, ip: server_ip
-    config.vm.network :forwarded_port, guest: 80, host: 8000
-  end
+ if Vagrant.has_plugin?("vagrant-auto_network")
+   config.vm.network :private_network, :ip => "0.0.0.0", :auto_network => true
+ else
+   config.vm.network :private_network, ip: server_ip
+   config.vm.network :forwarded_port, guest: 80, host: 8000
+ end
+
+  # Public IP
+  config.vm.network :public_network
 
   # Enable agent forwarding over SSH connections
   config.ssh.forward_agent = true
 
   # Use NFS for the shared folder
-  config.vm.synced_folder ".", "/vagrant",
-    id: "core",
+  # config.vm.synced_folder ".", "/vagrant",
+  #   id: "core",
+  #   :nfs => true,
+  #   :mount_options => ['nolock,vers=3,udp,noatime,actimeo=2,fsc']
+  
+  config.vm.synced_folder ".", "/vagrant", 
+    # create: true, 
     :nfs => true,
-    :mount_options => ['nolock,vers=3,udp,noatime,actimeo=2,fsc']
+    :mount_options => ['actimeo=2', 'vers=3', 'tcp'],  
+    :linux__nfs_options => ['rw','no_subtree_check','all_squash','async']
 
   # Replicate local .gitconfig file if it exists
   if File.file?(File.expand_path("~/.gitconfig"))
@@ -219,7 +228,7 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/apache.sh", args: [server_ip, public_folder, hostname, github_url]
 
   # Provision Nginx Base
-  config.vm.provision "shell", path: "#{github_url}/scripts/nginx.sh", args: [server_ip, public_folder, hostname, github_url, php_version]
+  # config.vm.provision "shell", path: "#{github_url}/scripts/nginx.sh", args: [server_ip, public_folder, hostname, github_url, php_version]
 
 
   ####
